@@ -18,7 +18,11 @@ const {
 
 // DEFINE ENDPOINTS
 mainRoutes.get("/", async (req, res) => {
-  res.render("index");
+  try {
+    res.render("index");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 mainRoutes.post("/", async (req, res) => {

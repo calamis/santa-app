@@ -22,6 +22,8 @@ const isDateFormatValid = (date) => moment(date, "YYYY/MM/DD", true).isValid();
 const getAge = (birthday) =>
   new Date(new Date() - new Date(birthday)).getFullYear() - 1970;
 
+const pendingWishes = [];
+
 module.exports = {
   search,
   searchUser,
@@ -35,4 +37,5 @@ module.exports = {
   getUserProfilesFromURL,
   isDateFormatValid,
   getAge,
+  pendingWishes,
 };

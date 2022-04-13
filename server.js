@@ -1,5 +1,4 @@
-// server.js
-// where your node app starts
+const mailTimer = require("./utils/timer");
 
 // init project
 const express = require("express");
@@ -22,14 +21,11 @@ app.use(
 app.use(express.static("public"));
 
 // Set Template Engine
-app.set("views", process.cwd() + "/views");
+app.engine("html", require("ejs").renderFile);
 app.set("view engine", "ejs");
 
 // Set the Routes folder
 const mainRoute = require("./routes/index");
 app.use("/", mainRoute);
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT || 3000, function () {
-  console.log("Your app is listening on port " + listener.address().port);
-});
+module.exports = app;
